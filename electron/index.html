@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="lib/bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/nouislider/dist/nouislider.css"> 
+     <link href="index.css" rel="stylesheet">
+      <link href="lib/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+        <link href="../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" rel="stylesheet">
+
+    <title></title>
+  </head>
+  <body id="main" style="background: #000">
+  <div class="modal fade" id="myModalGraph1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Найдены файлы:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    <div class="modal fade" id="myModalBoxLoading" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Найдены файлы:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <h6 id="exampleModalText"> </h6>
+          <table class="table my-4 text-center modalTable" id="modalTable">
+                <thead class="thead-dark">
+                  <tr class="text-center">
+                    <th scope="col">Расположение</th>
+                    <th scope="col" style="width: 80px">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+</div>
+     <br>
+     <div class="container-fluid" id="content" hidden>
+      <button type="button" onclick="loadFiles()" id="close-btn" class="btn btn-success" style="width:150px;">Обновить</button>
+      <!--<button type="button" onclick="closeWindow()" id="close-btn" class="btn btn-success mx-2" style="width:150px;">Выход</button> -->
+      <br>
+      <ul class="nav nav-tabs my-4">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#table">Таблица</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#graphics">Графики</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="table">
+            <table class="table my-4 text-center tableTemperature">
+                <thead class="thead-dark">
+                  <tr class="text-center">
+                    <th scope="col">Температура</th>
+                    <th scope="col">Время Начала</th>
+                    <th scope="col">Время Окончания</th>
+                    <th scope="col">ПЕ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="graphics">
+          <div class="container-fluid" style="height: 300px;">
+           <canvas id="myChart"></canvas>
+          </div>
+         <br>
+         <div class="container-fluid"  >
+            <div class="mall-property" style="margin-right: 50px;margin-left: 40px;" >
+              <div id="mall-slider-handles" data-target="price"  >
+              </div>
+            </div>
+                <button type="button" onclick="cutChat1()"  class="btn btn-success my-3" style="margin-left: 25px;width:150px;">Обрезать</button>
+                <button type="button" onclick="allGraphiv()" id="all-graph-btn" class="btn btn-success" style="width:150px;" hidden>Весь график</button>
+          </div>
+          <br>
+          <div class="container-fluid" style="height: 300px;">
+           <canvas id="myChart2" ></canvas>
+         </div>
+                  <br>
+         <br>
+         </div>
+      </div>
+    </div>
+      <div id="loadingScreen" style="background: url('image/loading.jpg');position: absolute; top: 0; left: 0; height: 100%; width: 100%;opacity: 0;background-position: center;background-repeat: no-repeat;background-size: cover;">
+      </div>
+   </body>
+  <script src="lib/jquery-3.6.0.js"></script> 
+  <script src="lib/moment.min.js"></script> 
+  <script src="lib/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+  <script defer src="lib/fontawesome-free-5.15.3-web/js/all.js"></script>
+  <script src="index_main.js"></script>
+  
+  <script src="../node_modules/chart.js/dist/chart.min.js"></script> 
+  <script src="../node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js"></script>
+  <script src="../node_modules/nouislider/dist/nouislider.js"></script>
+  <script src="../node_modules/bootstrap-slider/dist/bootstrap-slider.js"></script>
+  <script src="../node_modules/chartjs-plugin-dragdata/dist/chartjs-plugin-dragdata.js"></script>
+</html>
